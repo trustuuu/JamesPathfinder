@@ -10,14 +10,14 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.callbacks.base import BaseCallbackHandler
 
 st.set_page_config(
-    page_title="James YS Chang pathfinder!",
+    page_title="Pathfinder!",
     page_icon="😍"
 )
-st.title("James YS Chang pathfinder")
+st.title("Please ask to AI about Yoon-Suk Chang")
 
 st.markdown("""
 Welcome!
-            Use this chatbot to ask questions to an AI about James YS Chang.
+            Use this chatbot to ask questions to an AI about Yoon-Suk Chang.
 """)
 
 st.session_state["messages"] = []
@@ -93,7 +93,7 @@ def paint_history():
 retriever = embed_file("Resume(YSChang_ATS).pdf")
 send_message("I'm ready! Ask away!", "ai", save=False)
 paint_history()
-message = st.chat_input("Ask anything about your file...")
+message = st.chat_input("Ask anything about Yoon-Suk Chang...")
 if message:
     send_message(message, "human")
     chain = (
