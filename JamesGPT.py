@@ -20,7 +20,10 @@ Welcome!
             Use this chatbot to ask questions to an AI about Yoon-Suk Chang.
 """)
 
-st.session_state["messages"] = []
+if 'initialized' not in st.session_state:
+    # Run the command or function you want to execute only once
+    st.session_state.initialized = True
+    st.session_state["messages"] = []
 
 class ChatCallbackHandler(BaseCallbackHandler):
     message = ""
@@ -92,6 +95,7 @@ def paint_history():
 
 retriever = embed_file("Resume(YSChang_ATS).pdf")
 send_message("I'm ready! Ask away!", "ai", save=False)
+
 paint_history()
 message = st.chat_input("Ask anything about Yoon-Suk Chang...")
 if message:
